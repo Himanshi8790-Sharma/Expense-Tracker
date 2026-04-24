@@ -32,7 +32,7 @@ A powerful **Full Stack Expense Tracker Web Application** that helps users manag
 - REST API
 
 ### Database
-- MongoDB / MySQL
+-  MySQL
 
 ### Authentication
 - JWT (JSON Web Token)
