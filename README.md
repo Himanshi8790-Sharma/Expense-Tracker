@@ -42,13 +42,17 @@ A powerful **Full Stack Expense Tracker Web Application** that helps users manag
 ## 📸 Screenshots
 
 ### 🏠 Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/Dashbord.png)
 
-### 💸 Add Income / Expense
-![Add Transaction](./screenshots/add-transaction.png)
+### 💸 Add Income 
+![Add Transaction](./screenshots/Income.png)
+
+### 💸 Add Expense
+![Add Transaction](./screenshots/Expense.png)
 
 ### 📊 Analytics Page
-![Charts](./screenshots/charts.png)
+![Charts](./screenshots/Analytics.png)
+
 
 ### 🔐 Login Page
 ![Login](./screenshots/login.png)
