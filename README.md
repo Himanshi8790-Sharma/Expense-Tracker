@@ -41,6 +41,9 @@ A powerful **Full Stack Expense Tracker Web Application** that helps users manag
 
 ## 📸 Screenshots
 
+### 🔐 Login Page
+![Login](./screenshots/Login.png)
+
 ### 🏠 Dashboard
 ![Dashboard](./screenshots/Dashbord.png)
 
@@ -52,10 +55,6 @@ A powerful **Full Stack Expense Tracker Web Application** that helps users manag
 
 ### 📊 Analytics Page
 ![Charts](./screenshots/Analytics.png)
-
-
-### 🔐 Login Page
-![Login](./screenshots/login.png)
 
 ---
 
