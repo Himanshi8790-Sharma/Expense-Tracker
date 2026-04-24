@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* ── Root container ── */
+.auth-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #081b29;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Wrapper card ── */
+.auth-wrapper {
+  position: relative;
+  width: 750px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid #0ef;
+  box-shadow: 0 0 25px #0ef;
+  overflow: hidden;
+}
+
+/* ── Background animated blobs ── */
+.auth-wrapper .bg-animate {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 850px;
+  height: 600px;
+  background: linear-gradient(45deg, #081b29, #0ef);
+  border-bottom: 3px solid #0ef;
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  transition: 1.5s ease;
+  transition-delay: 1.6s;
+}
+.auth-wrapper.active .bg-animate {
+  transform: rotate(0deg) skewY(0deg);
+  transition-delay: 0.5s;
+}
+
+.auth-wrapper .bg-animate2 {
+  position: absolute;
+  top: 100%;
+  left: 250px;
+  width: 850px;
+  height: 700px;
+  background: #081b29;
+  border-top: 3px solid #0ef;
+  transform: rotate(0deg) skewY(0deg);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: 0.5s;
+}
+.auth-wrapper.active .bg-animate2 {
+  transform: rotate(-11deg) skewY(-41deg);
+  transition-delay: 1.2s;
+}
+
+/* ── Form boxes ── */
+.auth-wrapper .form-box {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-wrapper .form-box.login {
+  left: 0;
+  padding: 0 60px 0 40px;
+}
+.auth-wrapper .form-box.register {
+  right: 0;
+  padding: 0 40px 0 60px;
+  pointer-events: none;
+}
+.auth-wrapper.active .form-box.register {
+  pointer-events: auto;
+}
+
+/* ── Form box animation — LOGIN ── */
+.auth-wrapper .form-box.login .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+.auth-wrapper.active .form-box.login .animation {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+/* ── Form box animation — REGISTER ── */
+.auth-wrapper .form-box.register .animation {
+  transform: translateX(120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+.auth-wrapper.active .form-box.register .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+/* ── Headings inside form ── */
+.form-box h2 {
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ── Input box ── */
+.form-box .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 25px 0;
+}
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  padding-right: 23px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.5s;
+}
+.input-box input:focus,
+.input-box input:valid {
+  border-bottom-color: #0ef;
+}
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: #fff;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+  color: #0ef;
+  font-size: 12px;
+}
+
+/* ── Button ── */
+.btn {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border: 2px solid #0ef;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  z-index: 1;
+  overflow: hidden;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 300%;
+  background: linear-gradient(#081b29, #0ef, #081b29, #0ef);
+  border-radius: 40px;
+  z-index: -1;
+  transition: 0.5s;
+}
+.btn:hover::before {
+  top: 0;
+}
+
+/* ── Sign up / login links ── */
+.form-box .logreg-link {
+  font-size: 14.5px;
+  color: #fff;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+.logreg-link p .register-link,
+.logreg-link p .login-link {
+  color: #0ef;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.logreg-link p .register-link:hover,
+.logreg-link p .login-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Info text panels ── */
+.auth-wrapper .info-text {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-wrapper .info-text.login {
+  right: 0;
+  text-align: right;
+  padding: 0 40px 60px 150px;
+}
+.auth-wrapper .info-text.register {
+  left: 0;
+  text-align: left;
+  padding: 0 150px 60px 40px;
+  pointer-events: none;
+}
+.auth-wrapper.active .info-text.register {
+  pointer-events: auto;
+}
+
+/* ── Info text animation — LOGIN ── */
+.auth-wrapper .info-text.login .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+.auth-wrapper.active .info-text.login .animation {
+  transform: translateX(120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+/* ── Info text animation — REGISTER ── */
+.auth-wrapper .info-text.register .animation {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: 0.7s ease;
+  transition-delay: calc(0.1s * var(--j));
+}
+.auth-wrapper.active .info-text.register .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.info-text h2 {
+  font-size: 36px;
+  color: #fff;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.info-text p {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 6px;
+}
+
+/* 🔥 Fix Chrome Autofill White Background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #081b29 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet — stack vertically */
+@media (max-width: 768px) {
+  .auth-wrapper {
+    width: 95vw;
+    height: auto;
+    min-height: 520px;
+  }
+
+  /* Hide info panels on mobile */
+  .auth-wrapper .info-text {
+    display: none;
+  }
+
+  /* Both form boxes take full width */
+  .auth-wrapper .form-box {
+    width: 100%;
+    padding: 40px 32px;
+  }
+
+  .auth-wrapper .form-box.login {
+    left: 0;
+  }
+  .auth-wrapper .form-box.register {
+    right: auto;
+    left: 0;
+  }
+
+  /* BG blobs — adjust for narrow screen */
+  .auth-wrapper .bg-animate {
+    width: 200%;
+    height: 110%;
+    left: -20px;
+    right: auto;
+    top: -4px;
+    transform: rotate(10deg) skewY(20deg);
+    transform-origin: bottom right;
+  }
+  .auth-wrapper.active .bg-animate {
+    transform: rotate(0deg) skewY(0deg);
+  }
+
+  .auth-wrapper .bg-animate2 {
+    left: -20px;
+    width: 200%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .auth-wrapper {
+    width: 100vw;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: 0 0 15px #0ef;
+  }
+
+  .auth-wrapper .form-box {
+    padding: 36px 24px;
+  }
+
+  .form-box h2 {
+    font-size: 26px;
+  }
+
+  .input-box input,
+  .input-box label {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}
